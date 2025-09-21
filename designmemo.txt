@@ -1,0 +1,20 @@
+DESIGN MEMO
+
+A stack is the right choice for the undo/redo feature because it follows a Last-In, First-Out (LIFO) 
+order. In an undo/redo system, the most recent action is always the first one that needs to be 
+reversed. For example, if a user types three characters, the last character they typed should be the 
+first one removed when they press undo. The stack structure makes this simple because we can push 
+every action onto the stack and then pop the most recent action when an undo is requested. Similarly, 
+redo works by taking the most recently undone action from the redo stack and putting it back onto the 
+undo stack.
+
+A queue is better suited for the help desk system because it follows a First-In, First-Out (FIFO) order.
+This ensures customers are helped in the order they arrived, which is fair and predictable. If we used 
+a stack for this, the last customer to enter the line would always be helped first, which would be 
+unfair and frustrating.
+
+Our stack and queue implementations differ from Python’s built-in lists because we used nodes and 
+pointers instead of storing values in a resizable array. This makes our solution more memory efficient 
+for many insert and remove operations since we do not need to shift elements in memory when adding or 
+removing values. It also gives a clear example of how these data structures work behind the scenes, 
+which is important for learning.
